@@ -1,0 +1,21 @@
+{
+  "name": "project2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^2.0.3",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "express-session": "^1.16.1",
+    "mongoose": "^5.5.7"
+  }
+}
