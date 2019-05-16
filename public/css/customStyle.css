@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700");
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+* {
+    font-family: "Libre Baskerville", serif;
+    color: #2d354c;
+}
+
+nav {    
+    background-color: #32c3ff;
+    border-bottom: solid 1px #ccc;
+}
+
+nav a {    
+    color: #fff;
+}
+
+nav .dropdown a{
+  color: #2d354c !important;
+}
+
+nav .far {
+  color: #2d354c;
+  font-size: 20px;
+}
+
+.card {
+  max-width: 350px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.row-section {
+  float: left;
+  width: 100%;
+  
+ 
+}
+
+.row-section h2 {
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+.row-section h2 span {
+  display: block;
+  font-size: 45px;
+  text-transform: none;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-weight: 700;
+}
+.row-section h2 a {
+  color: #d2abce;
+}
+.row-section .row-block {
+    background: #eaf9ff;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+.row-section .row-block ul {
+  margin: 0;
+  padding: 0;
+}
+.row-section .row-block ul li {
+  list-style: none;
+  margin-bottom: 20px;
+}
+.row-section .row-block ul li:last-child {
+  margin-bottom: 0;
+}
+
+.row-section .row-block .media {
+  border: 1px solid #32c3ff;
+  padding: 5px 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.05);
+  background: #fff;
+}
+.row-section .media .media-left img {
+  width: 75px;
+}
+.row-section .media .media-body p {
+  padding: 0 15px;
+  font-size: 14px;
+}
+.row-section .media .media-body h4 {
+  color: #32c3ff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0;
+  padding-left: 14px;
+  margin-top: 12px;
+}
+.btn-default {
+    color: #fff !important;
+    background: #32c3ff !important;  
+    border-radius: 30px !important;
+    border: none !important;
+    font-size: 16px !important;
+}

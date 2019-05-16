@@ -1,0 +1,15 @@
+.main-contaier {
+    border: 1px solid#ccc;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.image-preview {
+    margin-bottom: 5px;
+}
+
+.modal-header{
+    background-color:#32c3ff;
+}

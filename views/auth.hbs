@@ -1,0 +1,276 @@
+<div class="container main-contaier">
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#iron-grads">IronGrads - Login / SignUp</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#iron-team">IronTeam - Login / SignUp</a>
+    </li>
+    </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="iron-grads" class="container tab-pane active"><br>
+      
+    <form id="student-login-form" action="/auth/student-login" method="POST">
+        <div class="image-preview text-center">
+
+            <img class="preview-img rounded-circle" src="public/assets/images/profile-picture-placeholder.png" alt="Preview Image" width="200" height="200"/>
+
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="email">Email</span>
+            </div>
+            <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email"
+                aria-describedby="email">
+        </div>
+        
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="password">Password</span>
+            </div>
+            <input type="password" class="form-control" name="password" placeholder="password" aria-label="password"
+                aria-describedby="password">
+        </div>
+        <div class="clearfix">
+            <button type="submit" class="btn btn-outline-success float-right">Login</button>
+            <button type="button" class="btn btn-outline-info float-left" data-toggle="modal" data-target=".student-signup-modal">SignUp</button>
+        </div>
+        </form>
+        
+
+    </div>
+    {{!-- Teacher Form Start --}}
+    <div id="iron-team" class="container tab-pane fade"><br>
+      <form id="teacher-login-form" action="/auth/teacher-login" method="POST">
+        <div class="image-preview text-center">
+
+            <img class="preview-img rounded-circle" src="public/assets/images/profile-picture-placeholder.png" alt="Preview Image" width="200" height="200"/>
+
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="teacher-email">Email</span>
+            </div>
+            <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email"
+                aria-describedby="email">
+        </div>
+        
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="teacher-password">Password</span>
+            </div>
+            <input type="password" class="form-control" name="password" placeholder="password" aria-label="password"
+                aria-describedby="password">
+        </div>
+        <div class="clearfix">
+            <button type="submit" class="btn btn-outline-success float-right">Login</button>
+            <button type="button" class="btn btn-outline-info float-left" data-toggle="modal" data-target=".teacher-signup-modal">SignUp</button>
+        </div>
+        </form>
+        
+    </div>
+  </div>
+
+  {{!-- Student Signup modal --}}
+    <div class="modal fade student-signup-modal" tabindex="-1" role="dialog" aria-labelledby="student-signup-modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">Student - SignUp</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          {{!--Student SignUp --}}
+        <form id="student-signup-form" action="/auth/student-signup" method="POST">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="student-email">Email</label>
+                    <input type="email" id="student-email" name="email" class="form-control">                        
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="student-password">Password</label>
+                    <input type="password" id="student-password" name="password" class="form-control">                        
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="fullname">First Name</label>
+                    <input type="text" id="fullname" name="fullname" class="form-control">                        
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="surname">Last Name</label>
+                    <input type="text" id="surname" name="surname" class="form-control">                        
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="age">Age</label>
+                    <input type="number" name="age" min="14" max="100" value="14" class="form-control" id="age">
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="languages">Spoken Languages</label>
+                    <input type="text" id="languages" placeholder="English,Dutch,Spanish" name="languages" class="form-control">                        
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="country">Class Country</label>
+                    <select id="country" name="country" class="form-control">
+                        <option selected>Choose...</option>
+                        <option value="NL">Netherland</option>
+                        <option value="ES">Spain</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                        <option value="PT">Portugal</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" class="form-control">
+                        <option selected>Choose...</option>
+                        <option value="Web Developer">Web Developer</option>
+                        <option value="UX/UI Design">UX/UI Design</option>
+                        <option value="Data Analytics">Data Analytics</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phone_number">Phone Number:</label>
+                    <input type="text" id="phone_number" placeholder="+31 06 XXXXXXX" name="phone_number" class="form-control">                        
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email_contact">Email:</label>
+                    <input type="text" id="email_contact" placeholder="email@domain.com" name="email_contact" class="form-control">                        
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="facebook_link">Facebook Profile:</label>
+                    <input type="text" id="facebook_link" placeholder="https://www.facebook.com/userName" name="facebook_link" class="form-control">                        
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="github_link">Github Profile:</label>
+                    <input type="text" id="github_link" placeholder="https://github.com/userName" name="github_link" class="form-control">                        
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="linkedin_link">Linkedin Profile:</label>
+                    <input type="text" id="linkedin_link" placeholder="https://www.linkedin.com/in/userName/" name="linkedin_link" class="form-control">                        
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="personal_link">Personal HomePage:</label>
+                    <input type="text" id="personal_link" placeholder="http://www.yourpage.com/" name="personal_link" class="form-control">                        
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="description">Few words about you:</label>
+                    <textarea class="form-control" id="description" rows="5" name="description"></textarea>                      
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-outline-success float-right">SignUp</button>
+        
+        
+    </form>        
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- Teacher Signup Modal --}}
+    <div class="modal fade teacher-signup-modal" tabindex="-1" role="dialog" aria-labelledby="teacher-signup-modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">IronTeam - SignUp</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          {{!--Teacehr SignUp --}}
+        <form id="teacher-signup-form" action="/auth/teacher-signup" method="POST">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="teacher-email">Email</label>
+                    <input type="email" id="teacher-email" name="email" class="form-control">                        
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="teacher-password">Password</label>
+                    <input type="password" id="teacher-password" name="password" class="form-control">                        
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="teacher-fullname">First Name</label>
+                    <input type="text" id="teacher-fullname" name="fullname" class="form-control">                        
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="teacher-surname">Last Name</label>
+                    <input type="text" id="teacher-surname" name="surname" class="form-control">                        
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="teacher-subject">Subject</label>
+                    <select id="teacher-subject" name="subject" class="form-control">
+                        <option selected>Choose...</option>
+                        <option value="Web Developer">Web Developer</option>
+                        <option value="UX/UI Design">UX/UI Design</option>
+                        <option value="Data Analytics">Data Analytics</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="teacher-position">Position</label>
+                    <select id="teacher-position" name="position" class="form-control">
+                        <option selected>Choose...</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="teacherAssistant">Teacher Assistant</option>
+                        <option value="iStaff">IronHack Staff</option>
+                    </select>
+                </div>
+
+            </div>
+                <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-outline-success float-right">SignUp</button>           
+            
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+

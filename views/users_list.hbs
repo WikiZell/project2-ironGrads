@@ -1,0 +1,55 @@
+
+<section class="row-section">
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center"><span>IronGrads List</span>
+            </h2>
+        </div>
+        <div class="col-md-10 offset-md-1 row-block">            
+            <ul>
+            {{#each students}}
+                <li>
+                    <div class="media">
+                        <div class="media-left align-self-center">
+                            <img class="rounded-circle" src="{{this.profle_image}}" onError="this.onerror=null;this.src='public/assets/images/profile-picture-placeholder.png'">
+                        </div>
+                        <div class="media-body">
+                            <h4>{{this.fullname}} {{this.surname}}</h4><br>
+                            <p>{{{trimString this.description }}}</p>
+                            <p class="font-italic">Subject: {{this.subject}}</p>
+                            
+                        </div>
+                        <div class="media-right align-self-center">
+                            <a href="/user/detail?id={{this._id}}" class="btn btn-default">View Details</a>
+                        </div>
+                    </div>
+                </li>
+            {{/each}}
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+{{!-- <div class="container">
+    {{#grouped_each 3 students}}
+    <div class="card-deck">
+        {{#each this }}
+        <div class="card">
+            <img src="{{this.profle_image}}" onError="this.onerror=null;this.src='public/assets/images/profile-picture-placeholder.png'"" class="card-img-top" alt="{{this.fullname}}">
+            <div class="card-body">
+                <h5 class="card-title">{{this.fullname}} {{this.surname}}</h5>
+                <p class="card-text">
+                    {{{trimString this.description }}}
+                    </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Class: {{this.subject}}</small>
+                <span class="float-right"><button type="button" class="btn btn-light">Details</button></span>
+            </div>
+            </div>
+        {{/each}}
+    </div>
+    <hr>
+    {{/grouped_each}}
+</div> --}}
