@@ -16,8 +16,6 @@ exports.trimString = function (string) {
         trimmedString = "";
     }
 
-    
-    
     return trimmedString;
 };
 
@@ -34,4 +32,9 @@ exports.grouped_each = function(every, context, options) {
         out += options.fn(subcontext);
     }
     return out;
+};
+
+exports.ifEquals = function (string1, string2, options) {
+
+    return (string1 == string2) ? options.fn(this) : options.inverse(this);
 };

@@ -15,7 +15,7 @@
     <form id="student-login-form" action="/auth/student-login" method="POST">
         <div class="image-preview text-center">
 
-            <img class="preview-img rounded-circle" src="public/assets/images/profile-picture-placeholder.png" alt="Preview Image" width="200" height="200"/>
+            <img class="preview-img rounded-circle" src="/public/assets/images/profile-picture-placeholder.png" alt="Preview Image" width="200" height="200"/>
 
         </div>
 
@@ -24,7 +24,7 @@
                 <span class="input-group-text" id="email">Email</span>
             </div>
             <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email"
-                aria-describedby="email">
+                aria-describedby="email" required>
         </div>
         
         <div class="input-group mb-3">
@@ -32,7 +32,7 @@
                 <span class="input-group-text" id="password">Password</span>
             </div>
             <input type="password" class="form-control" name="password" placeholder="password" aria-label="password"
-                aria-describedby="password">
+                aria-describedby="password" required>
         </div>
         <div class="clearfix">
             <button type="submit" class="btn btn-outline-success float-right">Login</button>
@@ -47,7 +47,7 @@
       <form id="teacher-login-form" action="/auth/teacher-login" method="POST">
         <div class="image-preview text-center">
 
-            <img class="preview-img rounded-circle" src="public/assets/images/profile-picture-placeholder.png" alt="Preview Image" width="200" height="200"/>
+            <img class="preview-img rounded-circle" src="/public/assets/images/profile-picture-placeholder.png" alt="Preview Image" width="200" height="200"/>
 
         </div>
 
@@ -56,7 +56,7 @@
                 <span class="input-group-text" id="teacher-email">Email</span>
             </div>
             <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email"
-                aria-describedby="email">
+                aria-describedby="email" required>
         </div>
         
         <div class="input-group mb-3">
@@ -64,7 +64,7 @@
                 <span class="input-group-text" id="teacher-password">Password</span>
             </div>
             <input type="password" class="form-control" name="password" placeholder="password" aria-label="password"
-                aria-describedby="password">
+                aria-describedby="password" required>
         </div>
         <div class="clearfix">
             <button type="submit" class="btn btn-outline-success float-right">Login</button>
@@ -93,12 +93,12 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="student-email">Email</label>
-                    <input type="email" id="student-email" name="email" class="form-control">                        
+                    <input type="email" id="student-email" name="email" class="form-control" required>                        
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="student-password">Password</label>
-                    <input type="password" id="student-password" name="password" class="form-control">                        
+                    <input type="password" id="student-password" name="password" class="form-control" required>                        
                 </div>
 
             </div>
@@ -107,15 +107,15 @@
             <div class="form-row">
                 <div class="form-group col-md-5">
                     <label for="fullname">First Name</label>
-                    <input type="text" id="fullname" name="fullname" class="form-control">                        
+                    <input type="text" id="fullname" name="fullname" class="form-control" required>                        
                 </div>
                 <div class="form-group col-md-5">
                     <label for="surname">Last Name</label>
-                    <input type="text" id="surname" name="surname" class="form-control">                        
+                    <input type="text" id="surname" name="surname" class="form-control" required>                        
                 </div>
                 <div class="form-group col-md-2">
                     <label for="age">Age</label>
-                    <input type="number" name="age" min="14" max="100" value="14" class="form-control" id="age">
+                    <input type="number" name="age" min="14" max="100" class="form-control" id="age" required>
                 </div>
 
             </div>
@@ -127,7 +127,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="country">Class Country</label>
-                    <select id="country" name="country" class="form-control">
+                    <select id="country" name="country" class="form-control" required>
                         <option selected>Choose...</option>
                         <option value="NL">Netherland</option>
                         <option value="ES">Spain</option>
@@ -138,7 +138,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="subject">Subject</label>
-                    <select id="subject" name="subject" class="form-control">
+                    <select id="subject" name="subject" class="form-control" required>
                         <option selected>Choose...</option>
                         <option value="Web Developer">Web Developer</option>
                         <option value="UX/UI Design">UX/UI Design</option>
@@ -176,14 +176,14 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <label for="personal_link">Personal HomePage:</label>
-                    <input type="text" id="personal_link" placeholder="http://www.yourpage.com/" name="personal_link" class="form-control">                        
+                    <label for="homepage_link">Personal HomePage:</label>
+                    <input type="text" id="homepage_link" placeholder="http://www.yourpage.com/" name="homepage_link" class="form-control">                        
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="description">Few words about you:</label>
-                    <textarea class="form-control" id="description" rows="5" name="description"></textarea>                      
+                    <textarea class="form-control" id="description" rows="5" name="description" required></textarea>                      
                 </div>
             </div>
             <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Close</button>
@@ -213,13 +213,13 @@
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="teacher-email">Email</label>
-                    <input type="email" id="teacher-email" name="email" class="form-control">                        
+                    <label for="teacher-email">Email: <span class="text-danger">(ironhack.com domain required.)</span></label>
+                    <input type="email" id="teacher-email" name="email" pattern="[a-z.]*[@]\bironhack.com" class="form-control" required>                        
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="teacher-password">Password</label>
-                    <input type="password" id="teacher-password" name="password" class="form-control">                        
+                    <input type="password" id="teacher-password" name="password" class="form-control" required>                        
                 </div>
 
             </div>
@@ -227,16 +227,16 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="teacher-fullname">First Name</label>
-                    <input type="text" id="teacher-fullname" name="fullname" class="form-control">                        
+                    <input type="text" id="teacher-fullname" name="fullname" class="form-control" required>                        
                 </div>
                 <div class="form-group col-md-3">
                     <label for="teacher-surname">Last Name</label>
-                    <input type="text" id="teacher-surname" name="surname" class="form-control">                        
+                    <input type="text" id="teacher-surname" name="surname" class="form-control" required>                        
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="teacher-subject">Subject</label>
-                    <select id="teacher-subject" name="subject" class="form-control">
+                    <select id="teacher-subject" name="subject" class="form-control" required>
                         <option selected>Choose...</option>
                         <option value="Web Developer">Web Developer</option>
                         <option value="UX/UI Design">UX/UI Design</option>
@@ -246,7 +246,7 @@
 
                 <div class="form-group col-md-3">
                     <label for="teacher-position">Position</label>
-                    <select id="teacher-position" name="position" class="form-control">
+                    <select id="teacher-position" name="position" class="form-control" required>
                         <option selected>Choose...</option>
                         <option value="teacher">Teacher</option>
                         <option value="teacherAssistant">Teacher Assistant</option>
@@ -264,8 +264,11 @@
     </div>
   </div>
 </div>
-
+<p class="float-right clearfix">Back to home</p>
 </div>
+
+<script src="/public/js/auth.js"></script>
+
 
 
 

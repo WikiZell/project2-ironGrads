@@ -1,0 +1,118 @@
+<div class="container edit-profile">
+    <div class="row">
+  		<div class="col-sm-10"><h1>{{staff.fullname}} {{staff.surname}}</h1></div>
+    </div>
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+      <div class="text-center">
+        <img src="{{staff.profile_image}}" onError="this.onerror=null;this.src='/public/assets/images/profile-picture-placeholder.png'" class="avatar img-circle img-thumbnail" alt="{{staff.fullname}} {{staff.surname}}">
+      </div>
+
+        <div class="list-group">
+            <form style="display: none;" id="upload-image-form" action="/user/change-profile-image" method="post" enctype="multipart/form-data">
+                <input type="file" id="profile_image" name="profile_image" />
+                <button id="publish" type="submit"></button>
+            </form>
+
+            <input type="button" id="upload-image-btn" value="Change Profile Image" class="list-group-item list-group-item-action"/>
+            
+            <hr>
+            <a id="list-update-profile" data-toggle="list" href="#list-profile" role="tab" aria-controls="Update Profile" class="list-group-item list-group-item-action active">Update Profile</a>
+            <a id="list-grades-and-reviews-list" data-toggle="list" href="#list-grades-and-reviews" role="tab" aria-controls="Grades and Reviews" class="list-group-item list-group-item-action grade-review-btn">Grades and Reviews</a>
+            
+            
+        </div>
+        
+        
+        
+        </div><!--/col-3-->
+        <div class="col-sm-9"><!--left col-->
+        <div class="tab-content" id="nav-tabContent">
+        
+        {{!-- Grades and Reviews Tab Content --}}
+            <div class="tab-pane fade" id="list-grades-and-reviews" role="tabpanel" aria-labelledby="list-grades-and-reviews-list"></div>
+        {{!-- Update Profile Tab Content --}}
+            <div class="tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-update-profile">
+            <form id="login_data" action="/staff/update-login" method="POST">
+            <fieldset class="border p-2">                
+                <legend class="w-auto">Login:</legend>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="teacher-email">Email</label>
+                        <input type="email" id="teacher-email" value="{{staff.email}}" name="email" class="form-control" disabled>
+                    </div>
+                </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="staff-password">Old Password</label>
+                    <input type="password" id="staff-password" name="password" class="form-control" required>                        
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="staff-new-password">New Password</label>
+                    <input type="password" id="staff-new-password" name="new_password" class="form-control" required>                        
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-outline-success float-right">Update</button>
+            
+            </fieldset>
+            </form>
+
+            {{!-- Start profile form --}}
+            <hr>
+            <form id="form_profile" action="/staff/update-profile" method="GET">
+            <fieldset class="border p-2">
+                <legend class="w-auto">Profile:</legend>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="fullname">First Name</label>
+                    <input type="text" id="fullname" name="fullname" value="{{staff.fullname}}" class="form-control" required>                        
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="surname">Last Name</label>
+                    <input type="text" id="surname" name="surname" value="{{staff.surname}}" class="form-control" required>                        
+                </div>
+            </div>
+
+            
+               
+                <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="teacher-subject">Subject</label>
+                    <select id="teacher-subject" data-selected="{{staff.subject}}" name="subject" class="form-control" required>
+                        <option>Choose...</option>
+                        <option value="Web Developer">Web Developer</option>
+                        <option value="UX/UI Design">UX/UI Design</option>
+                        <option value="Data Analytics">Data Analytics</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="teacher-position">Position</label>
+                    <select id="teacher-position" data-selected="{{staff.position}}" name="position" class="form-control" required>
+                        <option>Choose...</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="teacherAssistant">Teacher Assistant</option>
+                        <option value="iStaff">IronHack Staff</option>
+                    </select>
+                </div>
+
+            </div>
+                <button type="submit" class="btn btn-outline-success float-right">Update</button>
+            </fieldset>
+            </form>
+            </div>
+        {{!--  --}}
+                      
+        </div>
+        </div>
+          
+          
+        <script src="/public/js/staff/edit-profile.js"></script> 
+    
+
+        </div><!--/col-9-->
+    </div><!--/row-->

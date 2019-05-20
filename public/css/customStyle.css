@@ -101,3 +101,75 @@ nav .far {
     border: none !important;
     font-size: 16px !important;
 }
+
+
+/* User details */
+
+.user-detail {
+  padding: 20px;
+  background: #eaf9ff;
+}
+
+.user-detail img {
+  width: 350px;
+}
+
+.user-detail .student-img-container {
+  
+}
+
+.user-detail ul > li {
+  list-style: none;
+}
+
+/* teacher comment */
+
+.comment-box {
+  margin-top: 30px !important;
+}
+
+.comment-box .media-heading {
+  background: #32c3ff !important;
+}
+
+.comment-box img {
+  width: 50px;
+  height: 50px;
+}
+.comment-box .media-left {
+  padding-right: 10px;
+  width: 65px;
+}
+.comment-box .media-body p {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+.comment-box .media-body .media p {
+  margin-bottom: 0;
+}
+.comment-box .media-heading {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 7px 10px;
+  position: relative;
+  margin-bottom: -1px;
+}
+.comment-box .media-heading:before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-width: 1px 0 0 1px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 10px;
+  left: -6px;
+}
+
+/* Edit Profile */
+
+.login-data{
+  border: solid 1px greenyellow;
+}

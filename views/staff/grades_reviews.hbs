@@ -1,0 +1,92 @@
+{{!-- var: students --}}
+{{!-- <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Class</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each students}}
+        <tr>
+            <td>{{this.fullname}}</td>
+            <td>{{this.surname}}</td>
+            <td>{{this.subject}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table> --}}
+
+
+ 
+ 
+
+
+<div class="row" style="margin-bottom: 5px;">
+    <div class="col-md-2 border-right">
+        <h4>Students</h4>
+    </div>
+    <div class="col-md-10">
+        <form class="form-inline">
+                <div class="input-group">
+                        <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-search"></i></span>
+                        </div>
+                        <input id="livesearch" class="form-control mr-sm-2" type="search" aria-label="Search" aria-describedby="Search">
+                </div>
+        </form>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover ">
+            <thead class="bg-light ">
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Class</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each students}}
+                <tr>
+                    <td><a href="#"><small>{{this.fullname}}</small></a></td>
+                    <td><small>{{this.surname}}</small></td>
+                    <td><small>{{this.email}}</small></td>
+                    <td><a href="#"><small>{{this.subject}}</small></a></td>
+                    <td>                        
+                        <a href="/staff/modal-user-detail?id={{this._id}}" class="view-profile-btn" title="View Profile"><i class="fa fa-pencil-square-o"></i></a>                        
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{{!-- profile modal --}}
+
+
+<div class="modal fade bd-example-modal-xl" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Quick View</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>        
+      </div>
+    </div>
+  </div>
+</div>
+
+

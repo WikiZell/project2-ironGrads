@@ -90,31 +90,36 @@
 			<p>{{student.description}}</p>
 		</div>
 	</div>
-	{{!-- teacher reviews block --}}
-	{{#if reviews.length}}
-		
 	<div class="row">
 		<div class="col-md-12">
             <h3>Teacher Reviews:</h3>
-			{{#each reviews}}
+
             <div class="media comment-box">
             <div class="media-left">
                 <a href="#">
-                    <img class="img-responsive user-photo rounded-circle" src="{{this.teacher_id.profile_image}}" onError="this.onerror=null;this.src='/public/assets/images/profile-picture-placeholder.png'">
+                    <img class="img-responsive user-photo rounded-circle" src="{{currentUser.profile_image}}" onError="this.onerror=null;this.src='/public/assets/images/profile-picture-placeholder.png'">
                 </a>
             </div>
             <div class="media-body">
-                <h4 class="media-heading">{{this.teacher_id.fullname}} {{this.teacher_id.surname}}</h4>
-                <p>{{this.review}}</p>
-              
+                <h4 class="media-heading">{{currentUser.fullname}} {{currentUser.surname}}</h4>
+				<form id="add-update-review" action="/staff/add-review" method="get">
+					<input type="hidden" name="student_id" value="{{student._id}}">
+					<input type="hidden" name="teacher_id" value="{{currentUser._id}}">
+					<input type="hidden" name="review_id" value="{{reviews._id}}">
+					<textarea class="form-control" id="new_review" rows="5" name="new_review" required>{{reviews.review}}</textarea>
+					<button type="submit" class="btn btn-outline-primary add-update-review-btn">Add/Update Review</button>
+					{{#if student.reviews_ids}}
+					<button class="btn btn-outline-danger remove-review-btn float-right">Remove Review</button>
+					{{else}}
+					<button class="btn btn-outline-danger remove-review-btn float-right" disabled>Remove Review</button>
+					{{/if}}
+				</form>
+				
             </div>
         </div>
-	   	{{/each}}
 
 
 		</div>
 	</div>
-	{{/if}}
-	{{!-- End teacher reviews block --}}
 </div>
 <script src="/public/js/user_details.js"></script> 

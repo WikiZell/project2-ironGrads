@@ -1,0 +1,170 @@
+<div class="container edit-profile">
+    <div class="row">
+  		<div class="col-sm-10"><h1>{{student.fullname}} {{student.surname}}</h1></div>
+    </div>
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+      <div class="text-center">
+        <img src="{{student.profile_image}}" onError="this.onerror=null;this.src='/public/assets/images/profile-picture-placeholder.png'" class="avatar img-circle img-thumbnail" alt="{{student.fullname}} {{student.surname}}">
+      </div>
+
+        <div class="list-group">
+            <form style="display: none;" id="upload-image-form" action="/user/change-profile-image" method="post" enctype="multipart/form-data">
+                <input type="file" id="profile_image" name="profile_image" />
+                <button id="publish" type="submit"></button>
+            </form>
+
+            <input type="button" id="upload-image-btn" value="Change Profile Image" class="list-group-item list-group-item-action"/>
+            <hr>
+            <a href="#" onclick="window.location.href='/user/detail?id={{student._id}}'" class="list-group-item list-group-item-action">View Profile</a>
+            {{#ifEquals student.visible "true" }}
+            
+                <a href="#" class="list-group-item list-group-item-action list-group-item-primary hide-show-profile" data-visible="{{student.visible}}">Profile: Public</a>            
+       
+            {{/ifEquals}}
+            {{#ifEquals student.visible "false" }}
+            
+                <a href="#" class="list-group-item list-group-item-action list-group-item-danger hide-show-profile" data-visible="{{student.visible}}">Profile: Private</a>            
+         
+            {{/ifEquals}}
+            
+            {{!-- <a href="javascript:{}" id="updateProfileBtn" class="list-group-item list-group-item-action list-group-item-success">Update Profile</a> --}}
+            <input type="submit" form="form_profile" value="Update Profile" class="list-group-item list-group-item-action list-group-item-success"/>
+        </div>
+        
+        
+        
+        </div><!--/col-3-->
+
+        
+        <div class="clearfix">
+            <form id="login_data" action="/user/update-login" method="POST">
+            <fieldset class="border p-2">
+                
+                <legend class="w-auto">Login:</legend>
+                <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="student-email">Email</label>
+                    <input type="email" id="student-email" name="email" value="{{student.email}}" class="form-control" disabled>                        
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="student-password">Old Password</label>
+                    <input type="password" id="student-password" name="password" class="form-control" required>                        
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="student-new-password">New Password</label>
+                    <input type="password" id="student-new-password" name="new_password" class="form-control" required>                        
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-outline-success float-right">Update</button>
+            
+            </fieldset>
+            </form>
+
+            {{!-- Start profile form --}}
+            <hr>
+            <form id="form_profile" action="/user/update-profile" method="GET">
+            <fieldset class="border p-2">
+                <legend class="w-auto">Profile:</legend>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="fullname">First Name</label>
+                    <input type="text" id="fullname" name="fullname" value="{{student.fullname}}" class="form-control" required>                        
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="surname">Last Name</label>
+                    <input type="text" id="surname" name="surname" value="{{student.surname}}" class="form-control" required>                        
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="age">Age</label>
+                    <input type="number" name="age" min="14" max="100" value="{{student.age}}" class="form-control" id="age" required>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="languages">Spoken Languages</label>
+                    <input type="text" id="languages" placeholder="English,Dutch,Spanish" name="languages" value="{{student.languages}}" class="form-control">                        
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="country">Class Country</label>
+                    <select id="country" data-selected="{{student.country}}" name="country" class="form-control" required>
+                        <option >Choose...</option>
+                        <option value="NL">Netherland</option>
+                        <option value="ES">Spain</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                        <option value="PT">Portugal</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="subject">Subject</label>
+                    <select id="subject" data-selected="{{student.subject}}" name="subject" class="form-control" required>
+                        <option >Choose...</option>
+                        <option value="Web Developer">Web Developer</option>
+                        <option value="UX/UI Design">UX/UI Design</option>
+                        <option value="Data Analytics">Data Analytics</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phone_number">Phone Number:</label>
+                    <input type="text" id="phone_number" placeholder="+31 06 XXXXXXX" value="{{student.phone_number}}" name="phone_number" class="form-control">                        
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email_contact">Email:</label>
+                    <input type="text" id="email_contact" placeholder="email@domain.com" value="{{student.email_contact}}" name="email_contact" class="form-control">                        
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="facebook_link">Facebook Profile:</label>
+                    <input type="text" id="facebook_link" placeholder="https://www.facebook.com/userName" value="{{student.facebook_link}}" name="facebook_link" class="form-control">                        
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="github_link">Github Profile:</label>
+                    <input type="text" id="github_link" placeholder="https://github.com/userName" value="{{student.github_link}}" name="github_link" class="form-control">                        
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="linkedin_link">Linkedin Profile:</label>
+                    <input type="text" id="linkedin_link" placeholder="https://www.linkedin.com/in/userName/" value="{{student.linkedin_link}}" name="linkedin_link" class="form-control">                        
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="homepage_link">Personal HomePage:</label>
+                    <input type="text" id="homepage_link" placeholder="http://www.yourpage.com/" value="{{student.homepage_link}}" name="homepage_link" class="form-control">                        
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="description">Few words about you:</label>
+                    <textarea class="form-control" id="description" rows="5" name="description" required>{{student.description}}</textarea>                      
+                </div>
+            </div>
+            </fieldset>
+            </form>
+            </div>
+            
+ 
+          
+          
+        <script src="/public/js/edit-profile.js"></script> 
+    
+
+        </div><!--/col-9-->
+    </div><!--/row-->
