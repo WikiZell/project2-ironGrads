@@ -178,7 +178,7 @@ app.post("/user/change-profile-image",upload.single('profile_image'), async (req
         /* Staff upload */
         let myId = mongoose.Types.ObjectId(req.session.currentUser._id);
         try {
-            await TeachersDB.findOneAndUpdate({_id: myId},{ "profile_image" : req.file.path },{new:true,useFindAndModify:false}, (err, result) => {
+            await TeachersDB.findOneAndUpdate({_id: myId},{ "profile_image" : "/uploads/" + req.file.filename },{new:true,useFindAndModify:false}, (err, result) => {
                 
             let newResult = JSON.parse(JSON.stringify(result));
             delete newResult.password;
@@ -195,7 +195,7 @@ app.post("/user/change-profile-image",upload.single('profile_image'), async (req
         let myId = mongoose.Types.ObjectId(req.session.currentUser._id);
         try {
             console.log(req.file)
-            await UsersDB.findOneAndUpdate({_id: myId},{ "profile_image" : req.file.path },{new:true,useFindAndModify:false}, (err, result) => {
+            await UsersDB.findOneAndUpdate({_id: myId},{ "profile_image" : "/uploads/" + req.file.filename },{new:true,useFindAndModify:false}, (err, result) => {
               let newResult = JSON.parse(JSON.stringify(result))
               delete newResult.password;
               req.session.currentUser = result;
