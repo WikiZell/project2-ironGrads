@@ -126,16 +126,18 @@ app.post("/user/update-login", async (req, res, next) => {
         password: req.body.password,
         new_password: req.body.new_password
         }
-
+        
     UsersDB.find({ email: req.body.email })
     .then((user) => {
-            if (user.length > 0) {
+      
+            if (user.length > 0) {              
                 //Username available -> compare old password
                 //User found proceed with authentication
                 bcrypt.compare(updateUser.password, req.session.currentUser.password, function(err, equal) {                    
                     if(equal) {                        
                         //Password match
                         //update with new password
+                        
                         bcrypt.hash(updateUser.new_password, 10, function (err, new_password_hashed) {
                             // Store hash in your password DB.
                             if (err) throw new Error("hashing error")
@@ -150,14 +152,15 @@ app.post("/user/update-login", async (req, res, next) => {
                              } catch (err) {
                                 res.status(200).json({"status":"error","message":"Server Error"})
                              }
-                        });
-                        
+                        });                       
                         
                     }else{                        
                         res.status(200).json({"status":"error","message":"Invalid password"}) 
                     }
                 })
 
+            }else{
+              res.status(200).json({"status":"error","message":"An error occured"}) 
             }
         })
         .catch((err) => {

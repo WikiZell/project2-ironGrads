@@ -173,3 +173,7 @@ nav .far {
 .login-data{
   border: solid 1px greenyellow;
 }
+
+img {
+  max-width:350px;
+}

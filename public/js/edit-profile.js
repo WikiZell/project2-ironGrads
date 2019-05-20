@@ -21,9 +21,7 @@ window.addEventListener("load", function() {
         e.preventDefault();
         actionUrl = $(this).attr("action")
         serializedFormData = $(this).serialize();
-
-        let formData = $(this).serializeArray();
-        let actionurl = $(this).attr("action")
+        
 
         $.ajax({
             url: actionUrl,
