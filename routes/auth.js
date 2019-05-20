@@ -53,10 +53,12 @@ app.post("/auth/student-signup", async (req, res) => {
     age: req.body.age,
     languages: req.body.languages,
     description: req.body.description,
-    profle_image: req.body.profle_image || "public/assets/images/profile-picture-placeholder.png",
+    profile_image: req.body.profile_image || "/public/assets/images/profile-picture-placeholder.png",
     hompage_link: req.body.hompage_link,
     phone_number: req.body.phone_number,
-    email_contact: req.body.email_contact
+    email_contact: req.body.email_contact,
+    role: "student",
+    visible: "true"
   }, { versionKey: false })
 
   
@@ -114,15 +116,16 @@ app.post("/auth/teacher-login", (req, res) => {
   });
 
 app.post("/auth/teacher-signup", async (req, res) => {
-  console.log("teacher-signup",req.body)
+  
   let newTeacher = new TeachersDB({
     email: req.body.email,
     password: req.body.password,
     fullname: req.body.fullname,
     surname: req.body.surname,
     subject: req.body.subject,
-    profle_image: req.body.profle_image || "public/assets/images/profile-picture-placeholder.png",
-    position: req.body.position
+    profile_image: req.body.profile_image || "/public/assets/images/profile-picture-placeholder.png",
+    position: req.body.position,
+    role: "staff"
   }, { versionKey: false })
   
   try {

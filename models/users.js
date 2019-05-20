@@ -15,10 +15,12 @@ const usersSchema = new Schema({
     age: {type: Number},
     languages: {type: Array},
     description: {type: String},
-    profle_image: {type: String},
-    hompage_link: {type: String},
+    profile_image: {type: String},
+    homepage_link: {type: String},
     phone_number: {type: String},
     email_contact: {type: String},
+    visible: {type: String},
+    role: {type: String},
     reviews_ids: [{type: mongoose.Schema.Types.ObjectId, ref:"reviews"}]
   }, { versionKey: false })
 

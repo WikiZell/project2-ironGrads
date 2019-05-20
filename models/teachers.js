@@ -8,8 +8,9 @@ const teachersSchema = new Schema({
     fullname: { type: String },
     surname: { type: String },
     subject: { type: String },
-    profle_image: {type: String},
+    profile_image: {type: String},
     position: {type: String},
+    role: {type: String},
     reviews_ids: [{type: mongoose.Schema.Types.ObjectId, ref:"reviews"}]
   }, { versionKey: false })
 
