@@ -53,7 +53,7 @@ app.post("/auth/student-signup", async (req, res) => {
     age: req.body.age,
     languages: req.body.languages,
     description: req.body.description,
-    profile_image: req.body.profile_image || "/public/assets/images/profile-picture-placeholder.png",
+    profile_image: req.body.profile_image || "/assets/images/profile-picture-placeholder.png",
     hompage_link: req.body.hompage_link,
     phone_number: req.body.phone_number,
     email_contact: req.body.email_contact,
@@ -123,7 +123,7 @@ app.post("/auth/teacher-signup", async (req, res) => {
     fullname: req.body.fullname,
     surname: req.body.surname,
     subject: req.body.subject,
-    profile_image: req.body.profile_image || "/public/assets/images/profile-picture-placeholder.png",
+    profile_image: req.body.profile_image || "/assets/images/profile-picture-placeholder.png",
     position: req.body.position,
     role: "staff"
   }, { versionKey: false })

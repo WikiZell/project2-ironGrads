@@ -7,7 +7,7 @@ const TeachersDB = require("../models/teachers")
 const multer  = require('multer')
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'public/uploads')
+      cb(null, './public/uploads')
     }
   })
 const upload = multer({ storage: storage })
@@ -178,7 +178,7 @@ app.post("/user/change-profile-image",upload.single('profile_image'), async (req
         /* Staff upload */
         let myId = mongoose.Types.ObjectId(req.session.currentUser._id);
         try {
-            await TeachersDB.findOneAndUpdate({_id: myId},{ "profile_image" : "/"+req.file.path },{new:true,useFindAndModify:false}, (err, result) => {
+            await TeachersDB.findOneAndUpdate({_id: myId},{ "profile_image" : req.file.path },{new:true,useFindAndModify:false}, (err, result) => {
                 
             let newResult = JSON.parse(JSON.stringify(result));
             delete newResult.password;
@@ -194,7 +194,8 @@ app.post("/user/change-profile-image",upload.single('profile_image'), async (req
         /* Student upload */
         let myId = mongoose.Types.ObjectId(req.session.currentUser._id);
         try {
-            await UsersDB.findOneAndUpdate({_id: myId},{ "profile_image" : "/"+req.file.path },{new:true,useFindAndModify:false}, (err, result) => {
+            console.log(req.file)
+            await UsersDB.findOneAndUpdate({_id: myId},{ "profile_image" : req.file.path },{new:true,useFindAndModify:false}, (err, result) => {
               let newResult = JSON.parse(JSON.stringify(result))
               delete newResult.password;
               req.session.currentUser = result;

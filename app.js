@@ -2,21 +2,19 @@
 require("dotenv").config();
 const express = require("express");
 const exphbs = require("express-handlebars");
-const helpers = require('./public/lib/helpers');
 const mongoose = require("mongoose")
+const path = require("path")
 const Schema = mongoose.Schema
-
-
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
-
 const bcrypt     = require("bcrypt");
 const saltRounds = 10;
 
 var app = express();
-
+app.use(express.static(path.join(__dirname, 'public')));
+const helpers = require("./public/lib/helpers");
 
 app.engine(
   ".hbs",
@@ -30,8 +28,10 @@ app.engine(
 
 
 
+
 app.set("view engine", ".hbs");
-app.use("/public", express.static("public"));
+
+
 app.use(bodyParser.urlencoded({ extended: false }))
 
 mongoose.connect(process.env.DATABASE_CONNECT, {useNewUrlParser: true}, (err)=> {
